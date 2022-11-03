@@ -16,14 +16,14 @@ function on () {
     control.waitMicros(100)
     basic.showIcon(IconNames.Heart)
 }
-input.onPinReleased(TouchPin.P1, function () {
-    off()
-})
-pins.setPull(DigitalPin.P1, PinPullMode.PullUp)
-keyboard.startKeyboardService()
-basic.showIcon(IconNames.Heart)
-basic.forever(function () {
-    if (pins.pulseIn(DigitalPin.P0, PulseValue.High) >= 500) {
+input.onPinPressed(TouchPin.P1, function () {
+    if (pins.pulseIn(DigitalPin.P1, PulseValue.High) == 1) {
         on()
     }
 })
+input.onPinReleased(TouchPin.P1, function () {
+    off()
+})
+keyboard.startKeyboardService()
+basic.showIcon(IconNames.Heart)
+pins.digitalWritePin(DigitalPin.P1, 1)
