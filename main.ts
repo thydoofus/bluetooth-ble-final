@@ -19,10 +19,11 @@ function on () {
 input.onPinReleased(TouchPin.P1, function () {
     off()
 })
+pins.setPull(DigitalPin.P1, PinPullMode.PullUp)
 keyboard.startKeyboardService()
 basic.showIcon(IconNames.Heart)
 basic.forever(function () {
-    if (pins.analogReadPin(AnalogPin.P1) >= 1000) {
+    if (pins.pulseIn(DigitalPin.P0, PulseValue.High) >= 500) {
         on()
     }
 })
