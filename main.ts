@@ -10,9 +10,13 @@ basic.forever(function on_forever() {
     if (pins.pulseIn(DigitalPin.P0, PulseValue.High) >= 500) {
         basic.showIcon(IconNames.Happy)
         keyboard.sendString("v")
-    } else if (pins.pulseIn(DigitalPin.P0, PulseValue.Low) > 500) {
-        basic.showIcon(IconNames.Sad)
-        keyboard.sendString("x")
+        if (pins.analogReadPin(AnalogPin.P0) < 700) {
+            basic.showIcon(IconNames.Sad)
+            keyboard.sendString("x")
+            return
+        }
+        
     }
     
+    return
 })

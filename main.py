@@ -12,8 +12,9 @@ def on_forever():
     if pins.pulse_in(DigitalPin.P0, PulseValue.HIGH) >= 500:
         basic.show_icon(IconNames.HAPPY)
         keyboard.send_string("v")
-    else:
-        if pins.pulse_in(DigitalPin.P0, PulseValue.LOW) > 500:
+        if pins.analog_read_pin(AnalogPin.P0) < 700:
             basic.show_icon(IconNames.SAD)
             keyboard.send_string("x")
+            return
+    return
 basic.forever(on_forever)
