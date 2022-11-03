@@ -1,5 +1,5 @@
 {
-    "name": "bluetooth ble final",
+    "name": "bluetooth ble final python",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -9,7 +9,8 @@
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md"
+        "README.md",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
@@ -21,5 +22,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "pyprj"
 }
